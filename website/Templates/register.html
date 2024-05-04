@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="col-md-6 offset-md-3" >
+    <h1 style="text-align: center;">Registeration page</h1>
+    <br>
+    <form action="" method="post" style="text-align: center;">
+    {% csrf_token %}
+        {% if form.errors %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {% for fields in form %}
+                    {% if fields.errors %}
+                        {{ fields.errors }}
+                    {% endif %}
+                {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+        
+        <!-- <div class="">
+        <label for="{{ form.username.id_for_label }}">Username:</label>
+        {{ form.username }}
+    </div>
+    <div class="">
+        <label for="{{ form.email.id_for_label }}">Username:</label>
+        {{ form.email }}
+    </div>
+    <div class="">
+        <label for="{{ form.first_name.id_for_label }}">Username:</label>
+        {{ form.first_name }}
+    </div>
+    <div class="">
+        <label for="{{ form.last_name.id_for_label }}">Last name:</label>
+        {{ form.last_name }}
+    </div>
+    <div class="">
+        <label for="{{ form.password1.id_for_label }}">Password </label>
+        {{ form.password1 }}
+    </div>
+    <div class="">
+        <label for="{{ form.password2.id_for_label }}"> Re enter Password </label>
+        {{ form.password2 }}
+    </div> -->
+    {{ form.as_p }}
+
+    <br>
+        <button type="submit" class="btn btn-primary">Log in</button>
+
+</form>
+
+</div>
+
+
+
+{% endblock%}

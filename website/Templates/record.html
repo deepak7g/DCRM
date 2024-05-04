@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<div class="col-md-6 offset-md-3" style="text-align: center;"> 
+    <h1> Records</h1>
+    <center>
+        <div class="card" style="width: 22rem;">
+            <div class="card-body">
+            <h4 class="card-header card-title">{{ customerRecord.firstName }} {{ customerRecord.lastName }}</h4>
+                <br>
+            <p class="card-text">{{ customerRecord.email }}</p>
+            <p class="card-text">{{ customerRecord.phoneNo }}</p>
+            <p class="card-text">{{ customerRecord.address }}</p>
+            <p class="card-text">{{ customerRecord.city }}</p>
+            <p class="card-text">{{ customerRecord.city }}</p>
+            <p class="card-text">{{ customerRecord.state }}</p>
+            <p class="card-text">{{ customerRecord.dateCreated }}</p>
+            </div>
+        </div>
+        <br><br></center>
+
+      <a href="{% url 'UpdateRecord' customerRecord.id %}" class="btn btn-secondary">Update</a>
+      <a href="{% url 'deleteRecord' customerRecord.id %}" class="btn btn-danger">Delete</a>
+    </div>
+{% endblock %}
+
+ <!-- {{ record.id }}<td><a class=" btn btn-primary" href=" {% url 'record' record.firstName %} ">{{ record.firstName }} {{ record.lastName }}</a></td>
+<a class=" btn btn-primary" href=" {% url 'record' record.firstName %} "></a></td>
+{{ record.email }}
+{{ record.phoneNo }}
+{{ record.address }}
+{{ record.city }}
+{{ record.state }}
+{{ record.dateCreated }} -->
